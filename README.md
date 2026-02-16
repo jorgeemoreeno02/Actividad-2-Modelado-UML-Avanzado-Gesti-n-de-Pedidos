@@ -1,19 +1,19 @@
-classDiagram
 ```mermaid
+classDiagram
     class Cliente {
         -String nombre
         -String email
-        +crearPedido(Date) Pedido
-        +getPedidos() List
+        +crearPedido(fecha: Date) Pedido
+        +getPedidos() List~Pedido~
     }
     
     class Pedido {
         -Date fecha
         -EstadoPedido estado
-        +agregarLinea(Producto, int) void
-        +eliminarLinea(LineaPedido) void
+        +agregarLinea(producto: Producto, cantidad: int) void
+        +eliminarLinea(linea: LineaPedido) void
         +calcularTotal() double
-        +cambiarEstado(EstadoPedido) void
+        +cambiarEstado(estado: EstadoPedido) void
     }
     
     class LineaPedido {
@@ -38,3 +38,4 @@ classDiagram
     Pedido "1" *-- "1..*" LineaPedido : contiene
     LineaPedido "0..*" --> "1" Producto : producto
     Pedido --> EstadoPedido : estado
+```
