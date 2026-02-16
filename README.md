@@ -1,20 +1,19 @@
-# Actividad-2-Modelado-UML-Avanzado-Gesti-n-de-Pedidos
-´´´mermaid
 classDiagram
+```mermaid
     class Cliente {
         -String nombre
         -String email
-        +crearPedido(fecha: Date) Pedido
-        +getPedidos() List~Pedido~
+        +crearPedido(Date) Pedido
+        +getPedidos() List
     }
     
     class Pedido {
         -Date fecha
         -EstadoPedido estado
-        +agregarLinea(producto: Producto, cantidad: int) void
-        +eliminarLinea(linea: LineaPedido) void
+        +agregarLinea(Producto, int) void
+        +eliminarLinea(LineaPedido) void
         +calcularTotal() double
-        +cambiarEstado(nuevoEstado: EstadoPedido) void
+        +cambiarEstado(EstadoPedido) void
     }
     
     class LineaPedido {
